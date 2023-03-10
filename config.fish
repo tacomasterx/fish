@@ -288,7 +288,7 @@ alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 #clear
-alias clean="clear; seq 1 $(tput cols) | sort -R | sparklines | lolcat"
+alias clean='/bin/clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 #search content with ripgrep
 alias rg="rg --sort path"
@@ -402,13 +402,13 @@ alias rmgitcache="rm -r ~/.cache/git"
 alias personal='cp -Rf /personal/* ~'
 
 # spark aliases
-alias clear='/bin/clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+# alias clear='/bin/clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # root privileges
 alias doas="doas --"
 
 # rm sec
-alias rm="rm -i"
+alias rm="rm -I"
 
 # apt
 alias aptu='sudo apt update'
@@ -423,12 +423,15 @@ alias .5='cd ../../../../..'
 alias cdpg='cd /run/media/kupoman/ubuntu/programming'
 alias cdgo='cd /run/media/kupoman/ubuntu/programming/go/src/'
 alias cdrb='cd /run/media/kupoman/ubuntu/programming/ruby/'
+alias cdrs='cd /run/media/kupoman/ubuntu/programming/rust/'
 alias cdpy='cd /run/media/kupoman/ubuntu/programming/python/'
-alias cdreact='cd /run/media/kupoman/ubuntu/programming/react/'
-alias copydir='pwd | tr -d "\n" | xclip -selection clipbboard'
+alias cdreact='cd /run/media/kupoman/ubuntu/programming/react/taco/workspace/'
+alias cpdir='pwd | tr -d "\n" | xclip -selection clipbboard'
+alias cddocs='cd /run/media/kupoman/DOCS/'
+alias cdgm='cd /run/media/kupoman/DOCS/GM_Adjutant'
 
 # vim vscode and atom
-alias vim='nvim'
+alias nv='nvim'
 alias svim='sudo nvim'
 alias vfish='nvim /home/kupoman/.config/fish/config.fish'
 alias vvim='nvim /home/kupoman/.config/nvim/init.vim'
@@ -465,6 +468,15 @@ alias newtag='git tag -a'
 
 # feh
 alias slideshow='feh --hide-pointer -qrzZFD 5'
+
+# postgresql
+alias postgres='sudo -iu postgres'
+# alias psql='sudo -iu postgres'
+
+# Add rust binaries to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.cargo/bin"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
